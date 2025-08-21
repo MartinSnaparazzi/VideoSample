@@ -1,5 +1,4 @@
 ﻿using System.Windows;
-using System.Windows.Forms;
 
 namespace VideoSample;
 
@@ -8,31 +7,10 @@ namespace VideoSample;
 /// </summary>
 public partial class SpareWindow : Window
 {
-    public SpareWindow()
+    public SpareWindow(string videoPath)
     {
         InitializeComponent();
-
-        var targetScreen = Screen.AllScreens.Where(s => !s.Primary).FirstOrDefault();
-        if (targetScreen != null)
-        {
-            var workingArea = targetScreen.WorkingArea;
-            this.Left = workingArea.Left;
-            this.Top = workingArea.Top;
-        }
-
-        if (this.IsLoaded)
-        {
-            this.WindowState = WindowState.Maximized;
-        }
-        else
-        {
-            this.Loaded += Window_Loaded;
-        }
+        VideoPlayer.Source = new Uri(videoPath, UriKind.RelativeOrAbsolute);
     }
 
-    private void Window_Loaded(object sender, RoutedEventArgs e)
-    {
-        var senderWindow = sender as Window;
-        senderWindow.WindowState = WindowState.Maximized;
-    }
 }

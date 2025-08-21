@@ -6,16 +6,31 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <UseWPF>true</UseWPF>
-        <PlatformTarget>x64</PlatformTarget>
+        <Platforms>x64;x86</Platforms>
     </PropertyGroup>
     <ItemGroup>
         <FrameworkReference Include="Microsoft.WindowsDesktop.App.WindowsForms" />
     </ItemGroup>
     <ItemGroup>
-      <None Update="sample-file.mp4">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </None>
+        <PackageReference Include="System.Management" Version="9.0.8" />
+    </ItemGroup>
+    <ItemGroup>
+        <None Update="sample-file-HQ.mp4">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="sample-file.mp4">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
     </ItemGroup>
 
-
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+        <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+        <PlatformTarget>x64</PlatformTarget>
+        <OutputPath>bin\x64\Debug\</OutputPath>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+        <RuntimeIdentifier>win-x86</RuntimeIdentifier>
+        <PlatformTarget>x86</PlatformTarget>
+        <OutputPath>bin\x86\Debug\</OutputPath>
+    </PropertyGroup>
 </Project>

@@ -11,6 +11,6 @@ ResizeMode="NoResize"
 Title="SpareWindow"
         >
     <Grid>
-        <local:LoopingMediaElement></local:LoopingMediaElement>
+        <local:LoopingMediaElement x:Name="VideoPlayer"></local:LoopingMediaElement>
     </Grid>
 </Window>

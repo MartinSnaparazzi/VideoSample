@@ -36,7 +36,6 @@ namespace VideoSample
     {
         public LoopingMediaElement() : base()
         {
-            this.Source = new Uri("sample-file.mp4", UriKind.Relative);
             this.MediaEnded += LoopingMediaElement_MediaEnded;
         }
 

@@ -9,8 +9,25 @@
 AllowsTransparency="False"
 ResizeMode="NoResize"
 Title="MainWindow"
+        WindowState="Maximized"
         >
     <Grid>
-        <local:LoopingMediaElement></local:LoopingMediaElement>
+        <StackPanel Margin="10">
+            <StackPanel Width="500" HorizontalAlignment="Left">
+                <TextBlock Text="Select Video Quality:" Margin="0,0,0,5"/>
+                <ComboBox x:Name="VideoQualityCombo" SelectedIndex="0">
+                    <ComboBoxItem Content="sample-file-HQ.mp4"/>
+                    <ComboBoxItem Content="sample-file.mp4"/>
+                </ComboBox>
+
+                <TextBlock Text="Video Windows:" Margin="0,10,0,5"/>
+                <TextBox x:Name="ExtraWindowsBox" Text="2"/>
+                <Button Content="Start Test" Margin="0,20,0,0" Click="Button_Click"/>
+            </StackPanel>
+            <TextBox Name="LogTextBox" 
+             IsReadOnly="True" 
+             TextWrapping="Wrap" 
+             VerticalScrollBarVisibility="Auto" />
+        </StackPanel>
     </Grid>
 </Window>
